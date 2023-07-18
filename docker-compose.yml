@@ -1,0 +1,12 @@
+version: "3"
+services:
+  datascience-notebook:
+    container_name: analysis-container
+    image: jupyter/datascience-notebook
+    volumes:
+      - $PWD:/tmp/working
+    working_dir: /tmp/working
+    ports:
+      - 8888:8888
+    restart: always
+    command: start.sh jupyter lab --NotebookApp.token=''
